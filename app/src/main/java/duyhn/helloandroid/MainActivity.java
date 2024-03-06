@@ -1,4 +1,4 @@
-kpackage duyhn.helloandroid;
+package duyhn.helloandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
 
