@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
     //khai báo các đối tượng gắn với điều khiển tương ứng ở đây
     EditText editTextSo1;
     EditText editTextSo2;
-    EditText editTextKetQua;
+    EditText editTextKQ;
     Button nutCong, nutTru, nutNhan, nutChia;
 
     @Override
@@ -21,10 +21,10 @@ public class MainActivity extends AppCompatActivity {
         TimDieuKhien();
     }
 
-     void TimDieuKhien() {
-        EditText editTextSo1 = (EditText) findViewById(R.id.edtSo1);
-        EditText editTextSo2 = (EditText) findViewById(R.id.edtSo2);
-        EditText editTextKetQua = (EditText) findViewById(R.id.edtKQ);
+    void TimDieuKhien() {
+        editTextSo1 = (EditText) findViewById(R.id.edtSo1);
+        editTextSo2 = (EditText) findViewById(R.id.edtSo2);
+        editTextKQ = (EditText) findViewById(R.id.edtKetQua);
         nutCong = (Button) findViewById(R.id.btnCong);
         nutTru = (Button) findViewById(R.id.btnTru);
         nutNhan = (Button) findViewById(R.id.btnNhan);
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         //b3.2: chuẩn bị dữ liệu xuất, biến thành dạng chuỗi
         String chuoiKQ = String.valueOf(Tong);
         //b3.3: gắn kết quả lên dk
-        editTextKetQua.setText(chuoiKQ);
+        editTextKQ.setText(chuoiKQ);
     }
 
     //xử lý trừ
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         //b3.2: chuẩn bị dữ liệu xuất, biến thành dạng chuỗi
         String chuoiKQ = String.valueOf(Hieu);
         //b3.3: gắn kết quả lên dk
-        editTextKetQua.setText(chuoiKQ);
+        editTextKQ.setText(chuoiKQ);
 
     }
 
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         //b3.2: chuẩn bị dữ liệu xuất, biến thành dạng chuỗi
         String chuoiKQ = String.valueOf(Tich);
         //b3.3: gắn kết quả lên dk
-        editTextKetQua.setText(chuoiKQ);
+        editTextKQ.setText(chuoiKQ);
     }
 
     //xử lý chia
@@ -121,6 +121,6 @@ public class MainActivity extends AppCompatActivity {
         //b3.2: chuẩn bị dữ liệu xuất, biến thành dạng chuỗi
         String chuoiKQ = String.valueOf(Thuong);
         //b3.3: gắn kết quả lên dk
-        editTextKetQua.setText(chuoiKQ);
+        editTextKQ.setText(chuoiKQ);
     }
 }
