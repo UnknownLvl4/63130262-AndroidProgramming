@@ -1,10 +1,10 @@
 package ntu.duyhn_63130262;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.WindowConstants;
 
 public class BMICal {
 	JFrame f;
@@ -29,4 +29,15 @@ public class BMICal {
 		});
 	}
 
+	public BMICal() {
+		initialize();
+	}
+
+	private void initialize() {
+		f = new JFrame();
+		f.setTitle("BMI Calculator");
+		f.setBounds(550, 250, 300, 200);
+		f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		f.getContentPane().setLayout(null);
+	}
 }
