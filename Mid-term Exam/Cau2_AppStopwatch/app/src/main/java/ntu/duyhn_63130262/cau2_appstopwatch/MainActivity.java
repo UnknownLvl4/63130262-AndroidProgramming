@@ -18,16 +18,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        FindControl();
-    }
 
-    void FindControl() {
-        TextViewtimer = (TextView) findViewById(R.id.timer);
-        nutStart = (Button) findViewById(R.id.btnStart);
-        nutPause = (Button) findViewById(R.id.btnPause);
-        nutReset = (Button) findViewById(R.id.btnReset);
+        TextViewtimer = findViewById(R.id.timer);
+        nutStart = findViewById(R.id.btnStart);
+        nutPause = findViewById(R.id.btnPause);
+        nutReset = findViewById(R.id.btnReset);
 
-        nutReset.setEnabled(true);
+        nutReset.setEnabled(false);
+
         nutStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,9 +63,11 @@ public class MainActivity extends AppCompatActivity {
                         int hours = sec / 3600;
                         int minutes = (sec % 3600) / 60;
                         int secs = sec % 60;
+
                         String time = String.format("%02d:%02d:%02d", hours, minutes, secs);
                         TextViewtimer.setText(time);
-                        secs++;
+
+                        sec++;
                     }
                     h.postDelayed(this, 1000);
                     if (!run) {
