@@ -77,6 +77,22 @@ public class BMICal {
 				BMINum.setBounds(10, 120, 300, 25);
 				f.getContentPane().add(BMINum);
 				BMINum.setText(String.format("Chỉ số BMI của bạn là: %.2f", bmi));
+				
+				Status = new JLabel("");
+				Status.setBounds(10, 137, 300, 25);
+				f.getContentPane().add(Status);
+				if(bmi<18.5) {
+					Status.setText("Bạn đang bị gầy!");
+				}
+				else if (bmi<24.9) {
+					Status.setText("Bạn đang ở trong tình trạng cân đối!");
+				}
+				else if (bmi < 29.9) {
+					Status.setText("Bạn đang bị thừa cân!");
+				}
+				else {
+					Status.setText("Bạn đang bị béo phì!");
+				}
 			}
 		});
 	}
