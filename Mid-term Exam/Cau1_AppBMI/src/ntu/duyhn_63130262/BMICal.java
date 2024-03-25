@@ -39,7 +39,7 @@ public class BMICal {
 		f.setBounds(550, 250, 300, 200);
 		f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		f.getContentPane().setLayout(null);
-		
+
 		JLabel hLabel = new JLabel("Chiều cao (m):");
 		hLabel.setBounds(10, 10, 120, 25);
 		f.getContentPane().add(hLabel);
@@ -47,6 +47,15 @@ public class BMICal {
 		Height = new JTextField();
 		Height.setBounds(130, 10, 150, 25);
 		f.getContentPane().add(Height);
-		Height.setColumns(1);
+		Height.setColumns(10);
+
+		JLabel wLabel = new JLabel("Cân nặng (Kg):");
+		wLabel.setBounds(10, 50, 120, 25);
+		f.getContentPane().add(wLabel);
+
+		Weight = new JTextField();
+		Weight.setBounds(130, 50, 150, 25);
+		f.getContentPane().add(Weight);
+		Weight.setColumns(10);
 	}
 }
