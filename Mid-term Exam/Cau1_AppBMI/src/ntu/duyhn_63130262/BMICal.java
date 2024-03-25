@@ -14,7 +14,19 @@ public class BMICal {
 	JLabel Status;
 
 	public static void main(String[] args) {
-		
+		EventQueue.invokeLater(new Runnable() {
+
+			@Override
+			public void run() {
+				try {
+					BMICal bmical = new BMICal();
+					bmical.f.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+			}
+		});
 	}
 
 }
