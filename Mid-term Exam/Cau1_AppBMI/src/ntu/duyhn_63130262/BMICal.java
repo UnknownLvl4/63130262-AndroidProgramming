@@ -73,6 +73,10 @@ public class BMICal {
 				double h = Double.parseDouble(Height.getText());
 				double w = Double.parseDouble(Weight.getText());
 				double bmi = w / (h * h);
+				BMINum = new JLabel("");
+				BMINum.setBounds(10, 120, 300, 25);
+				f.getContentPane().add(BMINum);
+				BMINum.setText(String.format("Chỉ số BMI của bạn là: %.2f", bmi));
 			}
 		});
 	}
