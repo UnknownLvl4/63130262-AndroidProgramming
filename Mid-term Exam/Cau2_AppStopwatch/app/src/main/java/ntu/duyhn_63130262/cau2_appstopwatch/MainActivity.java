@@ -3,6 +3,7 @@ package ntu.duyhn_63130262.cau2_appstopwatch;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -51,5 +52,29 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void timeStart() {
+        if (!run) {
+            run = true;
+            final Handler h = new Handler();
+            h.post(new Runnable() {
+                @Override
+                public void run() {
+                    if (run) {
+                        int hours = sec / 3600;
+                        int minutes = (sec % 3600) / 60;
+                        int secs = sec % 60;
+                        String time = String.format("%02d:%02d:%02d", hours, minutes, secs);
+                        TextViewtimer.setText(time);
+                        secs++;
+                    }
+                    h.postDelayed(this, 1000);
+                    if (!run) {
+                        h.removeCallbacksAndMessages(null);
+                    }
+                }
+            });
+        }
     }
 }
