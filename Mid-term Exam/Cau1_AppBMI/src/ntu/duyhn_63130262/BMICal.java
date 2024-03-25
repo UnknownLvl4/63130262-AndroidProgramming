@@ -39,5 +39,14 @@ public class BMICal {
 		f.setBounds(550, 250, 300, 200);
 		f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		f.getContentPane().setLayout(null);
+		
+		JLabel hLabel = new JLabel("Chiều cao (m):");
+		hLabel.setBounds(10, 10, 120, 25);
+		f.getContentPane().add(hLabel);
+
+		Height = new JTextField();
+		Height.setBounds(130, 10, 150, 25);
+		f.getContentPane().add(Height);
+		Height.setColumns(1);
 	}
 }
