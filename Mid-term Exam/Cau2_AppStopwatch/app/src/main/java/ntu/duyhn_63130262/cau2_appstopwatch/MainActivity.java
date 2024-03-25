@@ -77,4 +77,13 @@ public class MainActivity extends AppCompatActivity {
             });
         }
     }
+
+    public void timePause() {
+        run = false;
+    }
+
+    public void timeReset() {
+        sec = 0;
+        TextViewtimer.setText("00:00:00");
+    }
 }
