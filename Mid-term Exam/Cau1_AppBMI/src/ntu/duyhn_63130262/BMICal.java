@@ -1,6 +1,10 @@
 package ntu.duyhn_63130262;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -57,5 +61,19 @@ public class BMICal {
 		Weight.setBounds(130, 50, 150, 25);
 		f.getContentPane().add(Weight);
 		Weight.setColumns(10);
+
+		JButton btnCal = new JButton("Tính BMI");
+		btnCal.setBounds(80, 90, 120, 25);
+		f.getContentPane().add(btnCal);
+
+		btnCal.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				double h = Double.parseDouble(Height.getText());
+				double w = Double.parseDouble(Weight.getText());
+				double bmi = w / (h * h);
+			}
+		});
 	}
 }
