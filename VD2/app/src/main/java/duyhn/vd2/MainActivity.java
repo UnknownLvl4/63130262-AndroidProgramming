@@ -14,13 +14,6 @@ public class MainActivity extends AppCompatActivity {
     EditText editTextKQ;
     Button nutCong, nutTru, nutNhan, nutChia;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        TimDieuKhien();
-    }
-
     void TimDieuKhien() {
         editTextSo1 = (EditText) findViewById(R.id.edtSo1);
         editTextSo2 = (EditText) findViewById(R.id.edtSo2);
@@ -31,96 +24,80 @@ public class MainActivity extends AppCompatActivity {
         nutChia = (Button) findViewById(R.id.btnChia);
     }
 
-    //xử lý cộng
-    public void XuLyCong(View v) {
-        //Code xử lý cộng ở đây
-        //b1: lấy dữ liệu 2 số
-        //b1.1: tìm EditText số 1 và số 2
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        TimDieuKhien();
+        // Gắn bộ lắng nghe sự kiện và code xử lý cho từng nút
+        nutCong.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                //Gọi hàm xử lý Cộng
+                XULY_CONG();
+            }
+        });
 
-        //b1.2: lấy dữ liệu từ 2 điều khiển đó
-        String soThu1 = editTextSo1.getText().toString();
-        String soThu2 = editTextSo2.getText().toString();
-        //b1.3: chuyển dữ liệu từ chuỗi sang số
-        float soA = Float.parseFloat(soThu1);
-        float soB = Float.parseFloat(soThu2);
-        //b2: tính toán
-        float Tong = soA + soB;
-        //b3: hiện kết quả
-        //b3.1.
+        nutTru.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                XULY_TRU();
+            }
+        });
 
-        //b3.2: chuẩn bị dữ liệu xuất, biến thành dạng chuỗi
-        String chuoiKQ = String.valueOf(Tong);
-        //b3.3: gắn kết quả lên dk
+        nutNhan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                XULY_NHAN();
+            }
+        });
+
+        nutChia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                XULY_CHIA();
+            }
+        });
+    }
+
+    void XULY_CONG() {
+        //Lấy dữ liệu
+        String so1 = editTextSo1.getText().toString();
+        String so2 = editTextSo2.getText().toString();
+        float num1 = Float.parseFloat(so1);
+        float num2 = Float.parseFloat(so2);
+        float tong = num1 + num2;
+        String chuoiKQ = String.valueOf(tong);
         editTextKQ.setText(chuoiKQ);
     }
 
-    //xử lý trừ
-    public void XuLyTru(View v) {
-        //Code xử lý trừ ở đây
-        //b1: lấy dữ liệu 2 số
-        //b1.1: tìm EditText số 1 và số 2
-
-        //b1.2: lấy dữ liệu từ 2 điều khiển đó
-        String soThu1 = editTextSo1.getText().toString();
-        String soThu2 = editTextSo2.getText().toString();
-        //b.3: chuyển dữ liệu từ chuỗi sang số
-        float soA = Float.parseFloat(soThu1);
-        float soB = Float.parseFloat(soThu2);
-        //b2: tính toán
-        float Hieu = soA - soB;
-        //b3: hiện kết quả
-        //b3.1.
-
-        //b3.2: chuẩn bị dữ liệu xuất, biến thành dạng chuỗi
-        String chuoiKQ = String.valueOf(Hieu);
-        //b3.3: gắn kết quả lên dk
-        editTextKQ.setText(chuoiKQ);
-
-    }
-
-    //xử lý nhân
-    public void XuLyNhan(View v) {
-        //Code xử lý nhân ở đây
-        //b1: lấy dữ liệu 2 số
-        //b1.1: tìm EditText số 1 và số 2
-
-        //b1.2: lấy dữ liệu từ 2 điều khiển đó
-        String soThu1 = editTextSo1.getText().toString();
-        String soThu2 = editTextSo2.getText().toString();
-        //b.3: chuyển dữ liệu từ chuỗi sang số
-        float soA = Float.parseFloat(soThu1);
-        float soB = Float.parseFloat(soThu2);
-        //b2: tính toán
-        float Tich = soA * soB;
-        //b3: hiện kết quả
-        //b3.1.
-
-        //b3.2: chuẩn bị dữ liệu xuất, biến thành dạng chuỗi
-        String chuoiKQ = String.valueOf(Tich);
-        //b3.3: gắn kết quả lên dk
+    void XULY_TRU() {
+        String so1 = editTextSo1.getText().toString();
+        String so2 = editTextSo2.getText().toString();
+        float num1 = Float.parseFloat(so1);
+        float num2 = Float.parseFloat(so2);
+        float hieu = num1 - num2;
+        String chuoiKQ = String.valueOf(hieu);
         editTextKQ.setText(chuoiKQ);
     }
 
-    //xử lý chia
-    public void XuLyChia(View v) {
-        //Code xử lý chia ở đây
-        //b1: lấy dữ liệu 2 số
-        //b1.1: tìm EditText số 1 và số 2
+    void XULY_NHAN() {
+        String so1 = editTextSo1.getText().toString();
+        String so2 = editTextSo2.getText().toString();
+        float num1 = Float.parseFloat(so1);
+        float num2 = Float.parseFloat(so2);
+        float tich = num1 * num2;
+        String chuoiKQ = String.valueOf(tich);
+        editTextKQ.setText(chuoiKQ);
+    }
 
-        //b1.2: lấy dữ liệu từ 2 điều khiển đó
-        String soThu1 = editTextSo1.getText().toString();
-        String soThu2 = editTextSo2.getText().toString();
-        //b.3: chuyển dữ liệu từ chuỗi sang số
-        float soA = Float.parseFloat(soThu1);
-        float soB = Float.parseFloat(soThu2);
-        //b2: tính toán
-        float Thuong = soA / soB;
-        //b3: hiện kết quả
-        //b3.1.
-
-        //b3.2: chuẩn bị dữ liệu xuất, biến thành dạng chuỗi
-        String chuoiKQ = String.valueOf(Thuong);
-        //b3.3: gắn kết quả lên dk
+    void XULY_CHIA() {
+        String so1 = editTextSo1.getText().toString();
+        String so2 = editTextSo2.getText().toString();
+        float num1 = Float.parseFloat(so1);
+        float num2 = Float.parseFloat(so2);
+        float thuong = num1 / num2;
+        String chuoiKQ = String.valueOf(thuong);
         editTextKQ.setText(chuoiKQ);
     }
 }
